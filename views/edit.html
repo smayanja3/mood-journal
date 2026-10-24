@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>New Entry</title>
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">Mood Journal</h2>
+        <nav>
+            <ul>
+                <l1><a href="/entries"></a></l1>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Adding more to this entry...</h1>
+        <form id="editForm" data-id="<%= entry._id %>" required>
+            <label>Date <input type="date" name="date" value="<%= entry.displayDate %>"></label>
+
+            <label for="mood">
+                <select name="mood" id="mood">
+                    <option value="great" <%= entry.mood === 'great' ? 'selected' : '' %>>Great</option>
+                    <option value="good" <%= entry.mood === 'good' ? 'selected' : '' %>>Good</option>
+                    <option value="calm" <%= entry.mood === 'calm' ? 'selected' : '' %>>Calm</option>
+                    <option value="okay" <%= entry.mood === 'okay' ? 'selected' : '' %>>Okay</option>
+                    <option value="low" <%= entry.mood === 'low' ? 'selected' : '' %>>Low</option>
+                    <option value="anxious" <%= entry.mood === 'anxious' ? 'selected' : '' %>>Anxious</option>
+                    <option value="overwhelmed" <%= entry.mood === 'overwhelmed' ? 'selected' : '' %>>Overwhelmed</option>
+                    <option value="rough" <%= entry.mood === 'rough' ? 'selected' : '' %>>Rough</option>
+                </select>
+            </label>
+
+            <label>Mood scale (1-10) <input type="number" name="moodSale"  min="1" max="10" value="<%= entry.moodScale %>" >1</label>
+            <label>Journal Entry <textarea type="text" name="journal" row="10" value="<%= entry.journal %>" required></textarea></label>
+            <label>Tags <input type="text" name="tags" value="<%= entry.tags %>"></label>
+
+             <p id="error-message"></p>
+
+            <button class="Submit">Save Entry</button>
+            <a href="/entries/<%= entry._id">Cancel</a>
+        </form>
+    </main>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

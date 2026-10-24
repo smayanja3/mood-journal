@@ -4,7 +4,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 let PORT = process.env.PORT || 6700;
-const Run = require('./models/entry')
+const Entry = require('./models/entry.js')
 
 
 // connect to MongoDb ======================================================================
@@ -44,23 +44,23 @@ app.get('/entries/new', (req, res) => {
     res.render('add')
 })
 
-//------- read one entry
-app.get('/entries/:id', (req, res) => {
-    if (!mongoose.isValidObjectId(req.params.id)) {
-        return res.redirect('/entries')
-    }
-    Entry.findById(req.params.id)
-        .then(entry => {
-            if (!entry) return res.redirect('/entries')
-            res.render('allEntries', { entry })
-        })
-        .catch(err => {
-            console.log(err.message)
-            res.redirect('/entries')
-        })
-})
+// //------- read one entry
+// app.get('/entries/:id', (req, res) => {
+//     if (!mongoose.isValidObjectId(req.params.id)) {
+//         return res.redirect('/entries')
+//     }
+//     Entry.findById(req.params.id)
+//         .then(entry => {
+//             if (!entry) return res.redirect('/entries')
+//             res.render('allEntries', { entry })
+//         })
+//         .catch(err => {
+//             console.log(err.message)
+//             res.redirect('/entries')
+//         })
+// })
 
-//------ read filled entry 
+// //------ read filled entry 
 app.get('/entries/edit/:id', (req, res) => {
     if (!mongoose.isValidObjectId(req.params.id)) {
         return res.redirect('/entries')
@@ -81,7 +81,7 @@ app.get('/entries/edit/:id', (req, res) => {
 //----- create a new entry
 app.post('/entries', (req, res) => {
     Entry.create(req.body)
-        .then(() => res.redirect('entries'))
+        .then(() => res.redirect('/entries'))
         .catch(err => {
             console.log(err.message)
             res.redirect('/entries/new')
@@ -89,7 +89,7 @@ app.post('/entries', (req, res) => {
 })
 
 // PUT ======================================================================
-ap.put('/entries/:id', (req, res) => {
+app.put('/entries/:id', (req, res) => {
     Entry.findByIdAndUpdate(req.params.id, req.body, {
         runValidator: true })
         .then(() => res.json({ message: 'Updated' }))
@@ -101,15 +101,15 @@ ap.put('/entries/:id', (req, res) => {
 
 
 // DELETE ======================================================================
-app.delete('/entries/:id', (req, res) => {
-    Entry.findByIdAndDelete(req.params.id, req.body, {
-        runValidator: true })
-        .then(() => res.json({ message: 'Deleted' }))
-        .catch(err => {
-            console.log(err.message)
-            res.status(400).json({ error: err.message})
-        })
-})
+// app.delete('/entries/:id', (req, res) => {
+//     Entry.findByIdAndDelete(req.params.id, req.body, {
+//         runValidator: true })
+//         .then(() => res.json({ message: 'Deleted' }))
+//         .catch(err => {
+//             console.log(err.message)
+//             res.status(400).json({ error: err.message})
+//         })
+// })
 
 
 

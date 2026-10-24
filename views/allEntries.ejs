@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>New Entry</title>
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">Mood Journal</h2>
+        <nav>
+            <ul>
+                <l1><a href="/entries/new"></a></l1>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="statsSection">
+            <p>Todays Mood</p>
+            <p>Daily Streak</p>
+        </div>
+<!-- EJS JS HAS AN ISSUE WITH THE PLURAL OF ENTRY ENTRIES BECUSAE IT NOT AN ENGLISH DICTIONARY NEED TO MAKE ENTRIES GLOBAL ALSO WILL DOTOMORROW -->
+        <section>
+           <% if (entries.length === 0) { %>
+                <p>No Journal Entries<a href="/entries/new"></a></p>
+           <% } %>
+
+
+           <% entries.forEach((entry) => { %>
+            <!-- <a href="" class="" > -->
+            <div>
+                <div>
+                    <%= entry.displayDate %>
+                    <div>
+                        <%= entry.mood %>
+                        <%= entry.moodScale %>
+                    </div>
+                    
+                    <%= entry.journal %>
+                    <%= entry.tags %>
+                </div>
+                <a href="/entries/edit/<%= entry._id %>" class="btn">Edit</a>
+                <button id="deleteBtn" class="danger" data-id="<%= entry._id %>">Delete</button>
+            </div>
+
+          <% }) %>
+
+        </section>
+
+
+    </main>
+
+</body>
+
+</html>
