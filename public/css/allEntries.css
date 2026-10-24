@@ -1,0 +1,99 @@
+main{
+    max-width:750px;
+    margin:0 auto;
+    padding: 20px;
+}
+
+.statsSection{
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.statsSection p {
+    /* stretch take up 1 space */
+    flex: 1;
+    padding: 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* =========================== 
+   ====== entry cards ======
+============================== */
+
+.entries{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.entryOne{
+    display: flex;
+    flex-direction:column;
+    gap:15px;
+    padding:20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius:15px;
+}
+
+.entryTop{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:8px;
+}
+
+.scale, .tags{
+    font-size:small;
+    color: var(--muted)
+}
+
+.journal{
+    margin: 8px 0;
+}
+
+
+/* =========================== 
+   ====== edit & delete ======
+============================== */
+
+.actions{
+    display:flex;
+    gap: 10px;
+}
+
+.actions a {
+    padding: 12px;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.actions a:hover {
+    background: var(--accent);
+    color: var(--card);
+}
+
+/* =========================== 
+    ===== mood pill colors ====
+============================== */
+
+.mood{
+    padding:4px 14px;
+    border:1px solid;
+    border-radius:20px;
+    font-size: small;
+}
+
+.great, .add { color:#d0533c; }
+.calm { color:#6f7a3e; }
+.okay { color: #b06a22;}
+.low, .anxious { color:#7a6a8a; }
+.overwhelmed, .rough { color:#d0533c;}

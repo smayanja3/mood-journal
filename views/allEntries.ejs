@@ -37,19 +37,27 @@
             <!-- <a href="" class="" > -->
             <div class="entryOne">
                 <div>
-                    <%= entry.displayDate %>
+
                     <div class="entryTop">
-                        <%= entry.mood %>
-                        <%= entry.moodScale %>
+                        <p class="date"><%= entry.displayDate %></p>
+                        <p class="mood <%= entry.mood %>"><%= entry.mood %></p>
                     </div>
                     
-                    
+                    <% if ( entry.moodScale) { %>
+                        <p class="scale">Mood scale <%= entry.moodScale %> /10</p>
+                  <% } %>
 
-                    <%= entry.journal %>
-                    <%= entry.tags %>
+                    <p class="journal"><%= entry.journal %></p>
+
+                        <% if ( entry.tags) { %>
+                        <p class="tags"><%= entry.tags %></p>
+                  <% } %>
+
                 </div>
-                <a href="/entries/edit/<%= entry._id %>" class="btn">Edit</a>
-                <button class="deleteBtn" class="danger" data-id="<%= entry._id %>">Delete</button>
+                <div class="actions">
+                    <a href="/entries/edit/<%= entry._id %>" class="btn">Edit</a>
+                    <button class="deleteBtn" data-id="<%= entry._id %>">Delete</button>
+                </div>
             </div>
 
           <% }) %>
