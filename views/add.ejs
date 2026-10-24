@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="add.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/add.css">
     <title>New Entry</title>
 </head>
 
 <body>
+
     <header>
         <h2 class="logo">Mood Journal</h2>
         <nav>
@@ -20,30 +21,40 @@
     </header>
 
     <main>
-        <h1>How are you feeling today?</h1>
-        <form action="/entries" method="POST" >
-            <label>Date <input type="date" name="date"></label>
+        <div id="container">
+            <h1>How are you feeling today?</h1>
+            <form action="/entries" method="POST">
+                <div id="formTop">
+                    <label>Date <input type="date" name="date"></label>
 
-            <label for="mood">
-                <select name="mood" id="mood">
-                    <option value="great">Great</option>
-                    <option value="good">Good</option>
-                    <option value="calm">Calm</option>
-                    <option value="okay">Okay</option>
-                    <option value="low">Low</option> 
-                    <option value="anxious">Anxious</option>
-                    <option value="overwhelmed">Overwhelmed</option>
-                    <option value="rough">Rough</option>
-                </select>
-            </label>
+                    <label for="mood">Mood
+                        <select name="mood" id="mood">
+                            <option value="great">Great</option>
+                            <option value="good">Good</option>
+                            <option value="calm">Calm</option>
+                            <option value="okay">Okay</option>
+                            <option value="low">Low</option>
+                            <option value="anxious">Anxious</option>
+                            <option value="overwhelmed">Overwhelmed</option>
+                            <option value="rough">Rough</option>
+                        </select>
+                    </label>
 
-            <label>Mood scale (1-10) <input type="number" name="moodScale"  min="1" max="10" placeholder="7">1</label>
-            <label>Journal Entry <textarea type="text" name="journal" row="10" placeholder="Today I have" required></textarea></label>
-            <label>Tags <input type="text" name="tags" placeholder=""></label>
+                    <label>Mood scale (1-10) <input type="number" name="moodScale" min="1" max="10"
+                            placeholder="7"></label>
+                    <label>Tags <input type="text" name="tags" placeholder=""></label>
+                </div>
 
-            <button class="submit">Save Entry</button>
-            <a href="/entries">Cancel</a>
-        </form>
+
+                <label>Journal Entry <textarea type="text" name="journal" rows="10" cols="50" placeholder="Today I have"
+                        required></textarea></label>
+
+                <div id="formBottom">
+                    <button class="submit">Save Entry</button>
+                    <a href="/entries">Cancel</a>
+                </div>
+            </form>
+        </div>
     </main>
 
 </body>

@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="allEntries.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/allEntries.css">
     <title>New Entry</title>
 </head>
 
@@ -20,12 +20,14 @@
     </header>
 
     <main>
+            <h1>My Journal</h1>
+    
         <div class="statsSection">
             <p>Todays Mood</p>
             <p>Daily Streak</p>
         </div>
 
-        <section>
+        <section class="entries">
            <% if (entries.length === 0) { %>
                 <p>No Journal Entries<a href="/entries/new"></a></p>
            <% } %>
@@ -33,14 +35,16 @@
 
            <% entries.forEach((entry) => { %>
             <!-- <a href="" class="" > -->
-            <div>
+            <div class="entryOne">
                 <div>
                     <%= entry.displayDate %>
-                    <div>
+                    <div class="entryTop">
                         <%= entry.mood %>
                         <%= entry.moodScale %>
                     </div>
                     
+                    
+
                     <%= entry.journal %>
                     <%= entry.tags %>
                 </div>

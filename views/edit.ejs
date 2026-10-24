@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="edit.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/edit.css">
     <title>New Entry</title>
 </head>
 
 <body>
+
     <header>
         <h2 class="logo">Mood Journal</h2>
         <nav>
@@ -21,11 +22,13 @@
     </header>
 
     <main> 
+         <div id="container">
         <h1>Adding more to this entry...</h1>
         <form id="editForm" data-id="<%= entry._id %>" required>
+             <div id="formTop">
             <label>Date <input type="date" name="date" value="<%= entry.inputDate %>"></label>
 
-            <label for="mood">
+            <label for="mood">Mood
                 <select name="mood" id="mood">
                     <option value="great" <%= entry.mood === 'great' ? 'selected' : '' %>>Great</option>
                     <option value="good" <%= entry.mood === 'good' ? 'selected' : '' %>>Good</option>
@@ -39,14 +42,19 @@
             </label>
 
             <label>Mood scale (1-10) <input type="number" name="moodScale"  min="1" max="10" value="<%= entry.moodScale %>"></label>
-            <label>Journal Entry <textarea type="text" name="journal" row="10"required><%= entry.journal %></textarea></label>
             <label>Tags <input type="text" name="tags" value="<%= entry.tags %>"></label>
+            </div>
+
+            <label>Journal Entry <textarea type="text" name="journal" row="10"required><%= entry.journal %></textarea></label>
+            
 
              <p id="error-message"></p>
-
+            <div id="formBottom">
             <button class="Submit">Save Entry</button>
             <a href="/entries">Cancel</a>
+             </div>
         </form>
+         </div>
     </main>
     <script src="/js/main.js"></script>
 </body>
