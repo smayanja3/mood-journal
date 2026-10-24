@@ -23,5 +23,12 @@ entrySchema.virtual('displayDate').get(function () {
     return this.date.toLocaleDateString('en-US', { timeZone: 'UTC' })
 })
 
+//---- date input for the edit page to appear in the calander/ date input
+// toISOString()= is a date method that returns a string representing a date
+//2026-20-21
+entrySchema.virtual('inputDate').get(function () {
+    return this.date.toISOString().slice(0,10)
+}) 
+
 
 module.exports = mongoose.model('Entry', entrySchema)  
