@@ -44,7 +44,7 @@
                     <%= entry.tags %>
                 </div>
                 <a href="/entries/edit/<%= entry._id %>" class="btn">Edit</a>
-                <button id="deleteBtn" class="danger" data-id="<%= entry._id %>">Delete</button>
+                <button class="deleteBtn" class="danger" data-id="<%= entry._id %>">Delete</button>
             </div>
 
           <% }) %>
@@ -53,7 +53,7 @@
 
 
     </main>
-
+    <script src="/js/main.js"></script>
 </body>
 
 </html>

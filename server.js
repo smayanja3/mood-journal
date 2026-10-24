@@ -91,8 +91,11 @@ app.post('/entries', (req, res) => {
 // PUT ======================================================================
 app.put('/entries/:id', (req, res) => {
     Entry.findByIdAndUpdate(req.params.id, req.body, {
-        runValidator: true })
-        .then(() => res.json({ message: 'Updated' }))
+        runValidator: true
+    })
+        .then(() => {
+            res.json({ message: 'Updated' })
+        })
         .catch(err => {
             console.log(err.message)
             res.status(400).json({ error: err.message })
@@ -101,15 +104,16 @@ app.put('/entries/:id', (req, res) => {
 
 
 // DELETE ======================================================================
-// app.delete('/entries/:id', (req, res) => {
-//     Entry.findByIdAndDelete(req.params.id, req.body, {
-//         runValidator: true })
-//         .then(() => res.json({ message: 'Deleted' }))
-//         .catch(err => {
-//             console.log(err.message)
-//             res.status(400).json({ error: err.message})
-//         })
-// })
+app.delete('/entries/:id', (req, res) => {
+    console.log('Deleting Entry:', req.params.id)
+    Entry.findByIdAndDelete(req.params.id)
+        .then(() => {
+            res.json({ message: 'Deleted' })
+        })
+        .catch(err => {
+            res.status(400).json({ error: err.message })
+        })
+})
 
 
 
