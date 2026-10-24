@@ -45,20 +45,20 @@ app.get('/entries/new', (req, res) => {
 })
 
 // //------- read one entry
-// app.get('/entries/:id', (req, res) => {
-//     if (!mongoose.isValidObjectId(req.params.id)) {
-//         return res.redirect('/entries')
-//     }
-//     Entry.findById(req.params.id)
-//         .then(entry => {
-//             if (!entry) return res.redirect('/entries')
-//             res.render('allEntries', { entry })
-//         })
-//         .catch(err => {
-//             console.log(err.message)
-//             res.redirect('/entries')
-//         })
-// })
+app.get('/entries/:id', (req, res) => {
+    if (!mongoose.isValidObjectId(req.params.id)) {
+        return res.redirect('/entries')
+    }
+    Entry.findById(req.params.id)
+        .then(entry => {
+            if (!entry) return res.redirect('/entries')
+            res.render('oneEntry', { entry })
+        })
+        .catch(err => {
+            console.log(err.message)
+            res.redirect('/entries')
+        })
+})
 
 // //------ read filled entry 
 app.get('/entries/edit/:id', (req, res) => {
@@ -68,7 +68,7 @@ app.get('/entries/edit/:id', (req, res) => {
     Entry.findById(req.params.id)
         .then(entry => {
             if (!entry) return res.redirect('/entries')
-            res.render('allEntries', { entry })
+            res.render('edit', { entry })
         })
         .catch(err => {
             console.log(err.message)
