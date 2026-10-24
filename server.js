@@ -44,6 +44,7 @@ app.get('/entries/new', (req, res) => {
     res.render('add')
 })
 
+
 // //------- read one entry
 app.get('/entries/:id', (req, res) => {
     if (!mongoose.isValidObjectId(req.params.id)) {
@@ -76,6 +77,7 @@ app.get('/entries/edit/:id', (req, res) => {
         })
 })
 
+
 // POST =====================================================================
 
 //----- create a new entry
@@ -87,6 +89,7 @@ app.post('/entries', (req, res) => {
             res.redirect('/entries/new')
         })
 })
+
 
 // PUT ======================================================================
 app.put('/entries/:id', (req, res) => {
@@ -114,7 +117,6 @@ app.delete('/entries/:id', (req, res) => {
             res.status(400).json({ error: err.message })
         })
 })
-
 
 
 // launch =======================================================================

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="allEntries.css">
     <title>New Entry</title>
 </head>
 
@@ -13,7 +14,7 @@
         <h2 class="logo">Mood Journal</h2>
         <nav>
             <ul>
-                <l1><a href="/entries/new"></a></l1>
+                <l1><a href="/entries/new">Add an Entry</a></l1>
             </ul>
         </nav>
     </header>
@@ -23,7 +24,7 @@
             <p>Todays Mood</p>
             <p>Daily Streak</p>
         </div>
-<!-- EJS JS HAS AN ISSUE WITH THE PLURAL OF ENTRY ENTRIES BECUSAE IT NOT AN ENGLISH DICTIONARY NEED TO MAKE ENTRIES GLOBAL ALSO WILL DOTOMORROW -->
+
         <section>
            <% if (entries.length === 0) { %>
                 <p>No Journal Entries<a href="/entries/new"></a></p>

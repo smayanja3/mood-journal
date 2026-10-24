@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="edit.css">
     <title>New Entry</title>
 </head>
 
@@ -13,12 +14,13 @@
         <h2 class="logo">Mood Journal</h2>
         <nav>
             <ul>
-                <l1><a href="/entries"></a></l1>
+                <l1><a href="/entries">View All</a></l1>
+                <l1><a href="/entries/new">Add an Entry</a></l1>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main> 
         <h1>Adding more to this entry...</h1>
         <form id="editForm" data-id="<%= entry._id %>" required>
             <label>Date <input type="date" name="date" value="<%= entry.inputDate %>"></label>
