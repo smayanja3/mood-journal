@@ -118,6 +118,10 @@ app.delete('/entries/:id', (req, res) => {
         })
 })
 
+app.get('/', (req, res) => {
+  res.redirect('/login');
+});
+
 
 // launch =======================================================================
 app.listen(PORT, () => {
