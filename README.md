@@ -2,7 +2,7 @@
 
 A private space to check in with yourself, one entry at a time.
 
-**Live Demo:** [[Add Render link here](https://mood-journal-xjxg.onrender.com/entries)]
+**Live Demo:** [[Live Site/](https://mood-journal-xjxg.onrender.com/entries)]
 
 ---
 
